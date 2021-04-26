@@ -1,3 +1,3 @@
 you have to change the "Namespace" and "ports" and other things with given names.
 
-after saving the file run this command `kubectl apply -f 'file name with location'`
+after saving the file run this command `kubectl apply -f `file name with location``
