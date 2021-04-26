@@ -1,0 +1,4 @@
+After creating this file on JumpHost login into puppet-agent node and then 
+run `sudo puppet agent -t`.
+
+also check the maria-db service status through `sudo systemctl status mariadb`
