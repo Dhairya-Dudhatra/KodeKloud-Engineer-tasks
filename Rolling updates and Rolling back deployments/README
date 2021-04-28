@@ -1,0 +1,11 @@
+Step 1:
+save test.yaml and try to create resources with this command. 
+$ kubectl apply -f test.yaml
+
+Step 2:
+update the image with this command.
+$ kubectl set image deployment `deploy_name` `container_name`= `new_image` --namespace=xfusion
+
+Step 3:
+to roll out run this command
+$ kubectl set image deployment `deploy_name` `container_name`= `old_image` --namespace=xfusion
