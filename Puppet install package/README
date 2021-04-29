@@ -1,0 +1,6 @@
+After creating this file on given location in jump host , login into all the app servers and run
+this command.
+$ sudo puppet agent -t
+
+and to cross-check verify the installation using this command.
+$ sudo yum install nginx
