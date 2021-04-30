@@ -1,0 +1,36 @@
+- name: archive in stapp01
+  hosts: stapp01
+  become: true
+  tasks:
+    - name: Archive for stapp01
+      archive:
+        path: /usr/src/devops/
+        dest: /opt/devops/news.tar.gz
+        owner: tony
+        group: tony
+        format: gz
+        force_archive: true
+- name: archive in stapp02
+  hosts: stapp02
+  become: true
+  tasks:
+    - name: Archive for stapp02
+      archive:
+        path: /usr/src/devops/
+        dest: /opt/devops/news.tar.gz
+        owner: steve
+        group: steve
+        format: gz
+        force_archive: true
+- name: archive in stapp03
+  hosts: stapp03
+  become: true
+  tasks:
+    - name: Archive for stapp03
+      archive:
+        path: /usr/src/devops/
+        dest: /opt/devops/news.tar.gz
+        owner: banner
+        group: banner
+        format: gz
+        force_archive: true
