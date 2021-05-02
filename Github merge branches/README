@@ -1,0 +1,24 @@
+Step 1:
+Copy the file which we want to add/commit in the given directory.
+
+Step 2:
+create the new branch using this command.
+$ git checkout -b 'new_branch_name'
+
+Step 2:
+$ git add 'file_name'
+
+Step 3:
+$ git commit -m "initial commit"
+
+Step 4:
+now switch to master branch for merging.
+$ git checkout master
+
+Srep 5:
+merge branch with this command.
+$ git merge 'new_branch_name'
+
+Step 6:
+to push the repo to origin.
+$ git push origin master 
