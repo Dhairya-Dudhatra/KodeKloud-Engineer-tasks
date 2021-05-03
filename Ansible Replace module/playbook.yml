@@ -1,0 +1,28 @@
+- hosts: all
+  tasks:
+  - name: Ansible replace module
+    replace:
+      path: /opt/security/blog.txt
+      regexp: 'xFusionCorp'
+      replace: 'Nautilus'
+      backup: yes
+    become: true
+    when: inventory_hostname == 'stapp01'
+
+  - name: Ansible replace module
+    replace:
+      path: /opt/security/story.txt
+      regexp: 'Nautilus'
+      replace: 'KodeKloud'
+      backup: yes
+    become: true
+    when: inventory_hostname == 'stapp02'
+
+  - name: Ansible replace module
+    replace:
+      path: /opt/security/media.txt
+      regexp: 'KodeKloud'
+      replace: 'xFusionCorp Industries'
+      backup: yes
+    become: true
+    when: inventory_hostname == 'stapp03'
