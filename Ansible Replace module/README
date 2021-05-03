@@ -1,0 +1,10 @@
+Step 1 : 
+create playbook.yml at the given file location 
+ 
+Step 2:
+execute this playbook.
+$ ansible-playbook -i inventory playbook.yml
+
+Step 3:
+cross-verify by logging into all app servers and print the content of the files.
+`Remember to write Case-sensitive changes` 
