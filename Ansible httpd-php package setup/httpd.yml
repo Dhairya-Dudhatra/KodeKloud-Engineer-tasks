@@ -1,0 +1,27 @@
+- hosts: stapp02
+  remote_user: steve
+  become: true
+  tasks:
+  - name: ensure apache exist
+    package: name=httpd state=present
+  - name: ensure php exist
+    package: name=php state=present
+  - name: configure document root
+    replace:
+      path: /etc/httpd/conf/httpd.conf
+      regexp: 'DocumentRoot "/var/www/html"'
+      replace: 'DocumentRoot "/var/www/html/myroot"'
+  - name: copy template
+    copy:
+      src: "~/playbooks/templates/phpinfo.php.j2"
+      dest: "/var/www/html/myroot/phpinfo.php"
+      owner: apache
+      group: apache
+  - name: start services
+    service:
+      name: httpd
+      state: started
+  - name: enable service
+    service:
+      name: httpd
+      enabled: yes
