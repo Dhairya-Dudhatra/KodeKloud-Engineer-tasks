@@ -1,0 +1,7 @@
+Step 1:
+change the details according to the task detials appropriatly.
+save the file.
+
+Step 2:
+run this playbook using this command.
+$ ansible-playbook -i inventory httpd.yml
