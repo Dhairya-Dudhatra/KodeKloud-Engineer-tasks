@@ -1,0 +1,126 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: redis-master
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: guest-master
+  template:
+    metadata:
+      labels:
+        run: guest-master
+    spec:
+      containers:
+        - name: master-redis-datacenter
+          image: redis
+          resources:
+            requests:
+              memory: 100Mi
+              cpu: 100m
+          ports:
+            - containerPort: 6379
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-master
+spec:
+  selector: 
+    run: guest-master
+  ports:
+    - protocol: TCP
+      port: 6379
+      targetPort: 6379
+
+---
+
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: redis-slave
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      run: guest-slave
+  template:
+    metadata:
+      labels:
+        run: guest-slave
+    spec:
+      containers:
+        - name: slave-redis-datacenter
+          image:  gcr.io/google_samples/gb-redisslave:v3
+          resources:
+            requests:
+              memory: 100Mi
+              cpu: 100m
+          env:
+            - name:GET_HOSTS_FROM
+              value: "dns" 
+          ports:
+            - containerPort: 6379
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-slave
+spec:
+  selector:
+    run: guest-slave
+  ports:
+    - protocol: TCP
+      port: 6379
+      targetPort: 6379
+
+---
+
+
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: frontend   
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      run: guest-frontend
+  template:
+    metadata:
+      labels:
+        run: guest-frontend
+    spec:
+      containers:
+        - name: php-redis-datacenter
+          image:  gcr.io/google_samples/gb-frontend:v4
+          resources:
+            requests:
+              memory: 100Mi
+              cpu: 100m
+          env:
+            - name:GET_HOSTS_FROM
+              value: "dns" 
+          ports:
+            - containerPort: 80
+
+---
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+spec:
+  type: NodePort
+  selector:
+    run: guest-frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      nodePort: 30009
