@@ -1,0 +1,8 @@
+Step 1 : store this file anywhere on jump host.
+
+Step 2 : Create resources by applying these command.
+$ kubectl apply -f file.yml
+
+Step 3 : open a port on host 1 and enter 31000 to vote.
+
+Step 4 : open a port on host 1 and enter 31001 to see the results.
