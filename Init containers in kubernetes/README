@@ -1,0 +1,6 @@
+Step 1:
+save this file on any location on jump host
+
+Step 2:
+run the delpoyment file by using this command.
+$ kubectl apply -f file.yml
