@@ -1,0 +1,5 @@
+Step 1 : store this file anywhere on jump host.
+
+Step 2 : Create resources by applying these command.
+$ kubectl apply -f file.yml
+
