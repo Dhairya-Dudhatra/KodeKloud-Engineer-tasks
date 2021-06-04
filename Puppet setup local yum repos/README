@@ -1,0 +1,6 @@
+Step 1:
+store this file with appropriate name given to you.
+
+Step 2:
+log into all the app servers and run this command.
+$ puppet agent -tv
