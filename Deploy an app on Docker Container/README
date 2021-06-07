@@ -1,0 +1,10 @@
+Step 1 :
+store this file on given location on specified app server.
+
+Step 2:
+Run this command.
+$ docker-compose up -d
+
+Step 3:
+Run this command to check if app is working fine.
+$ curl <hostname>:<port>
