@@ -1,0 +1,6 @@
+Step 1:
+store this file with necessary changes done.
+
+Step 2:
+execute this command to create Pod.
+$ kubectl apply -f `file_location`
