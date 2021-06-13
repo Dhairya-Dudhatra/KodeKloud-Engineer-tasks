@@ -1,0 +1,10 @@
+Step 1:
+Store this file with necessary changes on JumpHost.
+
+Step 2:
+apply this command.
+$ kubectl apply -f file.yml
+
+Step 3:
+to check if all is working fine , execute this command.
+$ kubectl exec envars-fieldref -c fieldref-container -n fieldref-namespace -- printenv NODE_NAME POD_IP POD_NAME POD_NAMESPACE POD_SERVICE_ACCOUNT
