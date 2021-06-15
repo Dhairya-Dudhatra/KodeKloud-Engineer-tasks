@@ -1,0 +1,10 @@
+Step 1:
+Store this file after necessary changes done.
+
+Step 2:
+apply this command to create replicaset.
+$ kubectl apply -f file.yml
+
+Step 3:
+after creating resources execute this command to check if they all are working or not.
+$ kubectl get pods
