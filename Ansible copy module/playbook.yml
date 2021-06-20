@@ -1,0 +1,9 @@
+- name: ansible copy
+  hosts: appservers
+  become: yes
+
+  tasks: 
+   - name: ansible copy file
+     copy:
+       src: /usr/src/data/index.html 
+       dest: /opt/data
