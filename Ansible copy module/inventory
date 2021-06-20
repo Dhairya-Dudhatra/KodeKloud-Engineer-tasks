@@ -1,0 +1,18 @@
+all:
+  hosts:
+    jump_host.stratos.xfusioncorp.com
+  children:
+    appservers:
+      hosts:
+        172.16.238.10:
+          ansible_user: tony
+          ansible_connection: ssh
+          ansible_password: Ir0nM@n
+        172.16.238.11:
+          ansible_connection: ssh
+          ansible_user: steve
+          ansible_password: Am3ric@
+        172.16.238.12:
+          ansible_connection: ssh
+          ansible_user: banner
+          ansible_password: BigGr33n
