@@ -1,0 +1,4 @@
+Step 1: Store these files with necessary changes at given location.
+
+Step 2: apply this command to execute the playbook
+$ ansible-playbook -i inventory playbook.yml
