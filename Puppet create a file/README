@@ -1,0 +1,6 @@
+Step 1:
+Create the puppet(.pp) file on given location.
+
+Step 2:
+Apply the command after logging into given app server.
+$ puppet agent -tv
